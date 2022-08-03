@@ -1,13 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContainerComponent } from './components/container/container.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./pages/heroes-list/heroes-list.component').then(
-        (mod) => mod.HeroesListComponent
-      ),
+    component: ContainerComponent,
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/heroes-list/heroes-list.component').then(
+            (mod) => mod.HeroesListComponent
+          ),
+      },
+    ],
   },
 ];
 
