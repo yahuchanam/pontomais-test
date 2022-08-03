@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./page-navigator.component.scss'],
 })
 export class PageNavigatorComponent implements OnInit {
-  @Input() pages = 20;
+  @Input() pages = 1;
   @Input() selected = 1;
   @Output() change = new EventEmitter<number>();
 

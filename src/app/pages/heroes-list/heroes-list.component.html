@@ -1,3 +1,7 @@
 <app-hero-search (change)="search($event)"></app-hero-search>
-<app-list-view [heroes]="payload?.data?.results || []"></app-list-view>
-<app-page-navigator></app-page-navigator>
+<app-no-result-list *ngIf="payload?.data?.total === 0; else resultList">
+</app-no-result-list>
+<ng-template #resultList>
+  <app-list-view [heroes]="payload?.data?.results || []"></app-list-view>
+  <app-page-navigator></app-page-navigator>
+</ng-template>

@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { PageNavigatorComponent } from './page-navigator/page-navigator.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from '../pipes/pipes.module';
+import { NoResultListComponent } from './no-result-list/no-result-list.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PipesModule } from '../pipes/pipes.module';
     HeroSearchComponent,
     ContainerComponent,
     PageNavigatorComponent,
+    NoResultListComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, PipesModule],
   exports: [
@@ -24,6 +26,7 @@ import { PipesModule } from '../pipes/pipes.module';
     HeroSearchComponent,
     ContainerComponent,
     PageNavigatorComponent,
+    NoResultListComponent,
   ],
 })
 export class ComponentsModule {}
