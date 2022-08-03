@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-page-navigator',
@@ -6,8 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./page-navigator.component.scss'],
 })
 export class PageNavigatorComponent implements OnInit {
-  pages = 3;
-  selected = 1;
+  @Input() pages = 20;
+  @Input() selected = 1;
   @Output() change = new EventEmitter<number>();
 
   constructor() {}
@@ -19,18 +19,21 @@ export class PageNavigatorComponent implements OnInit {
       return;
     }
 
-    this.change.emit(this.selected - 1);
+    this.change.emit(--this.selected);
   }
 
   foward(): void {
-    this.change.emit(this.selected + 1);
+    if (this.selected === this.pages) {
+      return;
+    }
+    this.change.emit(++this.selected);
   }
 
   goto(page: number): void {
     if (this.selected === page) {
       return;
     }
-
+    this.selected = page;
     this.change.emit(page);
   }
 }

@@ -4,10 +4,10 @@
   display: block;
   width: 0;
   height: 0;
-  border-top: calc($size * 0.866) solid transparent;
-  border-bottom: calc($size * 0.866) solid transparent;
-  border-left: calc($size * 0.866) solid transparent;
-  border-right: calc($size * 0.866) solid transparent;
+  border-top: $space-mobile-small solid transparent;
+  border-bottom: $space-mobile-small solid transparent;
+  border-left: $space-mobile-small solid transparent;
+  border-right: $space-mobile-small solid transparent;
 
   @if $type == left {
     border-right: $size solid $color;
@@ -45,6 +45,16 @@
 
 .btn {
   cursor: pointer;
+  color: $color-primary;
+
+  &.active {
+    background: $color-primary;
+    color: $color-light;
+  }
+
+  &.disabled {
+    opacity: 0.35;
+  }
 }
 
 .pages {
@@ -54,18 +64,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 8px;
     border-radius: 100%;
     width: 32px;
     height: 32px;
     font-family: "Roboto";
     border: 2px solid $color-primary;
-    color: $color-primary;
-
-    &.active {
-      background: $color-primary;
-      color: $color-light;
-    }
   }
 }

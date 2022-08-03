@@ -1,9 +1,13 @@
-<div class="btn btn-back" (click)="back()">
+<div
+  class="btn btn-back"
+  [ngClass]="{ disabled: selected === 1 }"
+  (click)="back()"
+>
   <span class="triangle-left"></span>
 </div>
 <div class="pages">
   <span
-    *ngFor="let page of pages | countNumber"
+    *ngFor="let page of pages | countNumber : selected"
     class="btn"
     [ngClass]="{ active: page === selected }"
     (click)="goto(page)"
@@ -11,6 +15,10 @@
     {{ page }}
   </span>
 </div>
-<div class="btn btn-foward" (click)="foward()">
+<div
+  class="btn btn-foward"
+  [ngClass]="{ disabled: selected === pages }"
+  (click)="foward()"
+>
   <span class="triangle-right"></span>
 </div>
