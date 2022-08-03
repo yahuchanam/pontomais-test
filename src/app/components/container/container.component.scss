@@ -1,0 +1,23 @@
+@import "/src/styles/design-token";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 12px);
+  background-color: $color-light;
+}
+
+.wrapper {
+  padding: $space-mobile-small $space-mobile-bigger $space-none;
+}
+
+.footer {
+  min-height: 0.7rem;
+  margin-top: auto;
+}
+
+@include desktop() {
+  .wrapper {
+    padding: $space-desktop-small $space-desktop-bigger $space-none;
+  }
+}
