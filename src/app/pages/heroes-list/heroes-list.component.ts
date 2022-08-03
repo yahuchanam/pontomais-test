@@ -23,8 +23,8 @@ export class HeroesListComponent implements OnInit, OnDestroy {
     this.subsink.unsubscribe();
   }
 
-  search(): void {
-    this.subsink.sink = this.marvelService.search().subscribe((result) => {
+  search(term: string = ''): void {
+    this.subsink.sink = this.marvelService.search(term).subscribe((result) => {
       console.log(result);
     });
   }
