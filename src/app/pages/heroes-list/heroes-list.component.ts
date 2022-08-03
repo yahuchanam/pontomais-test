@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MarvelService } from 'src/app/services/marvel/marvel.service';
 import { SubSink } from 'subsink';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { MarvelHeroResponse } from 'src/app/model';
 
 @Component({
   selector: 'app-heroes-list',
@@ -13,6 +14,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
 })
 export class HeroesListComponent implements OnInit, OnDestroy {
   subsink = new SubSink();
+  payload?: MarvelHeroResponse;
 
   constructor(private marvelService: MarvelService) {}
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class HeroesListComponent implements OnInit, OnDestroy {
 
   search(term: string = ''): void {
     this.subsink.sink = this.marvelService.search(term).subscribe((result) => {
-      console.log(result);
+      this.payload = result;
     });
   }
 }

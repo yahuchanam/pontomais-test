@@ -1,1 +1,36 @@
-<p>list-view works!</p>
+<div class="list-view">
+  <div class="list-view__header">
+    <div
+      *ngFor="let column of columns"
+      class="list-view__cell"
+      [ngClass]="'col-' + column.toLowerCase()"
+    >
+      {{ column }}
+    </div>
+  </div>
+  <div *ngFor="let hero of heroes" class="list-view__row">
+    <div class="list-view__cell">
+      <img
+        class="hero-thumb"
+        [src]="hero.thumbnail | marvelImage: imageSize"
+        [alt]="hero.name"
+      />
+    </div>
+    <div class="list-view__cell">
+      {{ hero.name }}
+    </div>
+    <div class="list-view__cell">
+      {{ hero.name }}
+    </div>
+    <div class="list-view__cell">
+      <span *ngFor="let serie of hero.series.items | slice: 0:3">
+        {{ serie.name }}
+      </span>
+    </div>
+    <div class="list-view__cell">
+      <span *ngFor="let event of hero.events.items | slice: 0:3">
+        {{ event.name }}
+      </span>
+    </div>
+  </div>
+</div>

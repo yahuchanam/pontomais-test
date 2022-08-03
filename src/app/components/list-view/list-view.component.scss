@@ -1,0 +1,58 @@
+@import "/src/styles/design-token";
+
+@mixin cell {
+  display: none;
+  min-width: 58px;
+
+  &:nth-child(1),
+  &:nth-child(2) {
+    display: flex;
+  }
+}
+
+@mixin row {
+  display: flex;
+  align-items: center;
+  gap: $space-mobile-regular;
+  padding: $space-mobile-regular;
+}
+
+.list-view {
+  display: flex;
+  flex-direction: column;
+  margin: 0 -30px;
+  font-family: "Roboto";
+  font-weight: 400;
+
+  &__header {
+    @include row();
+    background-color: $color-primary;
+    color: $color-light;
+    height: 37px;
+
+    > div {
+      @include cell();
+
+      &:nth-child(1) {
+        width: 58px;
+        height: 58px;
+      }
+    }
+  }
+
+  &__row {
+    @include row();
+    border-bottom: 2px solid $color-primary;
+  }
+
+  &__cell {
+    @include cell();
+  }
+}
+
+.hero-thumb {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 100%;
+}

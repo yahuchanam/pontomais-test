@@ -7,8 +7,7 @@ import { ContainerComponent } from './container/container.component';
 import { RouterModule } from '@angular/router';
 import { PageNavigatorComponent } from './page-navigator/page-navigator.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -16,19 +15,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     HeroSearchComponent,
     ContainerComponent,
-    PageNavigatorComponent
+    PageNavigatorComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, PipesModule],
   exports: [
     ListViewComponent,
     HeaderComponent,
     HeroSearchComponent,
     ContainerComponent,
-    PageNavigatorComponent
-  ]
+    PageNavigatorComponent,
+  ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
