@@ -12,8 +12,9 @@
 }
 
 .footer {
-  min-height: 0.7rem;
-  margin-top: auto;
+  height: $space-mobile-regular;
+  width: 100vw;
+  background-color: $color-primary;
 }
 
 @include desktop() {

@@ -1,0 +1,70 @@
+@import "/src/styles/design-token";
+
+@mixin triangle($size, $color, $type) {
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: calc($size * 0.866) solid transparent;
+  border-bottom: calc($size * 0.866) solid transparent;
+  border-left: calc($size * 0.866) solid transparent;
+  border-right: calc($size * 0.866) solid transparent;
+
+  @if $type == left {
+    border-right: $size solid $color;
+    border-left: unset;
+  } @else if $type == right {
+    border-left: $size solid $color;
+    border-right: unset;
+  } @else if $type == down {
+    border-top: $size solid $color;
+    border-bottom: unset;
+  } @else if $type == up {
+    border-bottom: $size solid $color;
+    border-top: unset;
+  }
+}
+
+:host {
+  display: flex;
+  gap: 60px;
+  padding: $space-mobile-regular $space-mobile-bigger $space-mobile-big;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Roboto";
+  font-weight: 400;
+}
+
+.triangle-left {
+  @include triangle(16px, $color-primary, left);
+}
+
+.triangle-right {
+  @include triangle(16px, $color-primary, right);
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.pages {
+  display: flex;
+  gap: 1rem;
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    font-family: "Roboto";
+    border: 2px solid $color-primary;
+    color: $color-primary;
+
+    &.active {
+      background: $color-primary;
+      color: $color-light;
+    }
+  }
+}

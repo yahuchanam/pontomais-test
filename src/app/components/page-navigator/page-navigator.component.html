@@ -1,1 +1,16 @@
-<p>page-navigator works!</p>
+<div class="btn btn-back" (click)="back()">
+  <span class="triangle-left"></span>
+</div>
+<div class="pages">
+  <span
+    *ngFor="let page of pages | countNumber"
+    class="btn"
+    [ngClass]="{ active: page === selected }"
+    (click)="goto(page)"
+  >
+    {{ page }}
+  </span>
+</div>
+<div class="btn btn-foward" (click)="foward()">
+  <span class="triangle-right"></span>
+</div>
