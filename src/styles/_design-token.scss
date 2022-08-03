@@ -1,0 +1,47 @@
+/** COLORS **/
+$color-base: #5a6779;
+$color-light: #FFF;
+$color-primary: #D42026;
+$color-border-color: #A5A5A5;
+$color-row-over: rgba($color-primary, .1);
+$color-navigation-control: #D20A0A;
+$color-navigation-control-disable: rgba($color-navigation-control, .35);
+
+/** SPACES **/
+$space-none: 0;
+$space-mobile-smaller: 10px;
+$space-mobile-small: 12px;
+$space-mobile-regular: 18px;
+$space-mobile-big: 24px;
+$space-mobile-bigger: 30px;
+
+$space-desktop-smaller: 10px;
+$space-desktop-small: 20px;
+$space-desktop-regular: 25px;
+$space-desktop-big: 34px;
+$space-desktop-bigger: 42px;
+
+/**
+* Breakpoints (Mobile First!)
+*/
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-x-large: 1200px;
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin x-desktop {
+  @media (min-width: #{$breakpoint-x-large}) {
+    @content;
+  }
+}
