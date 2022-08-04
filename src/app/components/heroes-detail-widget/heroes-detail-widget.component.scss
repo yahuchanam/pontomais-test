@@ -1,0 +1,26 @@
+@import "/src/styles/design-token";
+
+:host {
+  width: 25%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+@include desktop() {
+  h1 {
+    font-size: 4rem;
+  }
+}
+

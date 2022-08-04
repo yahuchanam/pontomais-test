@@ -1,0 +1,44 @@
+@import "/src/styles/design-token";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-family: "Roboto";
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $color-primary;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $color-primary;
+  }
+}
+
+.comics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.comic {
+  width: calc(100% / 2 - 1rem);
+  cursor: pointer;
+}
+
+@include desktop() {
+  .comic {
+    flex-basis: 150px;
+    width: auto;
+  }
+}

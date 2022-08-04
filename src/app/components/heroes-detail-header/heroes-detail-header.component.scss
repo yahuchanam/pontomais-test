@@ -1,0 +1,145 @@
+@import "/src/styles/design-token";
+
+:host {
+  font-family: "Roboto";
+}
+
+.hero-profile {
+  padding: 7px;
+  border: 1px solid $color-base;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: $color-base;
+  gap: 1rem;
+  &-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.hero-description {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.hero-id {
+  align-self: center;
+  color: $color-primary;
+  background: transparent;
+  font-weight: 900;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.hero-name {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.fancy-box {
+  position: relative;
+  width: auto;
+  overflow: hidden;
+  border: 1px solid $color-base;
+  padding: 1rem;
+  clip-path: polygon(
+    0 3%,
+    3% 0,
+    97% 0,
+    100% 3%,
+    100% 97%,
+    97% 100%,
+    3% 100%,
+    0% 97%,
+    0% 3%
+  );
+}
+
+.header-detail {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.metrics {
+  display: flex;
+  gap: 2.1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  .fancy-box {
+    width: 43%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:nth-child(1) {
+      color: $color-primary;
+    }
+
+    &:nth-child(2) {
+      color: #fc0a96;
+    }
+
+    &:nth-child(3) {
+      color: #d602e6;
+    }
+
+    &:nth-child(4) {
+      color: #a40afc;
+    }
+  }
+}
+
+@include desktop() {
+  .header-detail {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .hero-info {
+    &-top {
+      flex-direction: row;
+    }
+  }
+
+  .hero-id {
+    color: $color-light;
+    background-color: $color-primary;
+    align-self: flex-end;
+  }
+
+  .hero-name {
+    font-size: 3rem;
+  }
+
+  .metrics {
+    gap: 2rem;
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+    .fancy-box {
+      width: 25%;
+    }
+  }
+}

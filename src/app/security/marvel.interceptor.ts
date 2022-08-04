@@ -4,32 +4,20 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse,
 } from '@angular/common/http';
-import { catchError, finalize, Observable, throwError } from 'rxjs';
-import { PreloaderService } from '../services/preloader/preloader.service';
+import { Observable } from 'rxjs';
 import { marvelHash, marvelPublicKey } from '../app.config';
 
 @Injectable()
 export class MarvelInterceptor implements HttpInterceptor {
-  constructor(private preloaderService: PreloaderService) {}
+  constructor() {}
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     request = this.addApikeyToken(request);
-    this.preloaderService.show();
-
-    return next.handle(request).pipe(
-      catchError((error: HttpErrorResponse) => {
-        this.preloaderService.hide();
-        return throwError(() => error);
-      }),
-      finalize(() => {
-        this.preloaderService.hide();
-      })
-    );
+    return next.handle(request);
   }
 
   private addApikeyToken(request: HttpRequest<any>): HttpRequest<any> {

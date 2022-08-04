@@ -1,0 +1,13 @@
+<h1 class="title">histórias</h1>
+<div class="comics">
+  <div *ngIf="stories.length === 0; else resultList">
+    Nenhum resultado encontrado em histórias
+  </div>
+  <ng-template #resultList>
+    <ul class="stories">
+      <li *ngFor="let story of stories" class="story">
+        {{ story.title }}
+      </li>
+    </ul>
+  </ng-template>
+</div>

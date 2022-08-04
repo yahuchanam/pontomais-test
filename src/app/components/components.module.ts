@@ -9,6 +9,10 @@ import { PageNavigatorComponent } from './page-navigator/page-navigator.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from '../pipes/pipes.module';
 import { NoResultListComponent } from './no-result-list/no-result-list.component';
+import { HeroesDetailHeaderComponent } from './heroes-detail-header/heroes-detail-header.component';
+import { HeroesDetailWidgetComponent } from './heroes-detail-widget/heroes-detail-widget.component';
+import { HeroesDetailComicsComponent } from './heroes-detail-comics/heroes-detail-comics.component';
+import { HeroesDetailStoriesComponent } from './heroes-detail-stories/heroes-detail-stories.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,10 @@ import { NoResultListComponent } from './no-result-list/no-result-list.component
     ContainerComponent,
     PageNavigatorComponent,
     NoResultListComponent,
+    HeroesDetailHeaderComponent,
+    HeroesDetailWidgetComponent,
+    HeroesDetailComicsComponent,
+    HeroesDetailStoriesComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, PipesModule],
   exports: [
@@ -27,6 +35,10 @@ import { NoResultListComponent } from './no-result-list/no-result-list.component
     ContainerComponent,
     PageNavigatorComponent,
     NoResultListComponent,
+    HeroesDetailHeaderComponent,
+    HeroesDetailWidgetComponent,
+    HeroesDetailComicsComponent,
+    HeroesDetailStoriesComponent,
   ],
 })
 export class ComponentsModule {}

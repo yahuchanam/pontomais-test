@@ -1,0 +1,16 @@
+<h1 class="title">{{ title }}</h1>
+<div class="comics">
+  <div *ngIf="images.length === 0; else resultList">
+    Nenhum resultado encontrado em {{ title }}
+  </div>
+  <ng-template #resultList>
+    <div *ngFor="let image of images" class="comic">
+      <img
+        [src]="image.thumbnail | marvelImage: imageSize"
+        [alt]="image.title"
+        [title]="image.title"
+        class="hero-profile"
+      />
+    </div>
+  </ng-template>
+</div>

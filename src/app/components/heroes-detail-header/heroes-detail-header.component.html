@@ -1,0 +1,24 @@
+<div *ngIf="hero" class="header-detail">
+  <img
+    [src]="hero.thumbnail | marvelImage: imageSize"
+    [alt]="hero.name"
+    class="hero-profile"
+  />
+  <div class="hero-info">
+    <div class="hero-info-top">
+      <span class="hero-name">{{ hero.name }}</span>
+      <span class="hero-id">#{{ hero.id }}</span>
+    </div>
+    <div class="metrics">
+      <app-heroes-detail-widget
+        *ngFor="let metric of metrics"
+        [metric]="metric"
+        class="fancy-box"
+      ></app-heroes-detail-widget>
+    </div>
+    <span class="fancy-box hero-description">
+      <h3>Description</h3>
+      {{ hero.description }}
+    </span>
+  </div>
+</div>

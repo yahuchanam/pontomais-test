@@ -1,1 +1,24 @@
-<p>heroes-detail works!</p>
+<a [routerLink]="['/']" class="btn-back"> Voltar para lista </a>
+
+<div class="loader" *ngIf="loading; else loaded">Carregando...</div>
+<ng-template #loaded>
+  <app-heroes-detail-header
+    [hero]="heroDetail?.detail"
+    [metrics]="heroDetail?.metrics"
+  ></app-heroes-detail-header>
+
+  <app-heroes-detail-stories [stories]="heroDetail?.stories ?? []">
+  </app-heroes-detail-stories>
+
+  <app-heroes-detail-comics
+    title="quadrinhos"
+    [images]="heroDetail?.comics ?? []"
+  >
+  </app-heroes-detail-comics>
+
+  <app-heroes-detail-comics title="séries" [images]="heroDetail?.series ?? []">
+  </app-heroes-detail-comics>
+
+  <app-heroes-detail-comics title="eventos" [images]="heroDetail?.events ?? []">
+  </app-heroes-detail-comics>
+</ng-template>
