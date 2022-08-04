@@ -9,7 +9,7 @@ import { MarvelHero } from 'src/app/model';
 })
 export class ListViewComponent {
   @Input() heroes: MarvelHero[] = [];
-  imageSize = MarvelImageSize.MEDIUM;
+  imageSize = MarvelImageSize.STANDARD_MEDIUM;
   columns = ['' /*Image*/, 'Nome', 'Personagem', 'Séries', 'Eventos'];
   constructor() {}
 }

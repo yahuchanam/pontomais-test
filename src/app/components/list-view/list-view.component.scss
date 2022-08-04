@@ -8,6 +8,43 @@
   &:nth-child(2) {
     display: flex;
   }
+
+  @include desktop() {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-weight: 300;
+    flex-basis: 25%;
+    flex-wrap: wrap;
+
+    &:last-of-type {
+      flex-basis: 50%;
+    }
+
+    &:nth-child(1) {
+      flex-basis: 58px;
+      padding: 0;
+      margin-left: 16px;
+      margin-right: calc(25px - $space-desktop-smaller);
+    }
+
+    &:nth-child(2) {
+      display: none;
+    }
+
+    &:nth-child(3) {
+      flex-basis: calc(25% - 58px - 42px);
+      padding: 0;
+    }
+
+    &:nth-child(4),
+    &:nth-child(5) {
+      padding: 0 16px;
+      span {
+        line-height: 1.459;
+      }
+    }
+  }
 }
 
 @mixin row {
@@ -15,6 +52,10 @@
   align-items: center;
   gap: $space-mobile-regular;
   padding: $space-mobile-regular;
+
+  @include desktop() {
+    gap: $space-desktop-smaller;
+  }
 }
 
 .list-view {
@@ -43,6 +84,11 @@
   &__row {
     @include row();
     border-bottom: 2px solid $color-primary;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.1);
+    }
   }
 
   &__cell {
@@ -55,4 +101,45 @@
   height: 58px;
   object-fit: cover;
   border-radius: 100%;
+}
+
+@include desktop() {
+  .list-view {
+    margin: 0;
+
+    &__row {
+      border-bottom-color: rgba($color-primary, 0.2);
+      gap: $space-desktop-smaller;
+      padding: 20px 0;
+      min-height: 112px;
+    }
+
+    &__header {
+      background-color: transparent;
+      gap: 10px;
+      padding: 0;
+
+      > div {
+        background-color: $color-primary;
+        height: 37px;
+        align-items: center;
+        padding: 0 16px;
+        font-weight: 300;
+        flex-basis: 25%;
+
+        &:nth-child(1) {
+          display: none;
+        }
+
+        &:nth-child(3) {
+          flex-basis: 25%;
+          padding: 0 16px;
+        }
+
+        &:last-of-type {
+          flex-basis: 50%;
+        }
+      }
+    }
+  }
 }
