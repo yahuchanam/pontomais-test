@@ -7,6 +7,7 @@ import {
 } from './marvel-hero.inteface';
 import { MarvelResponse, MarvelResponseData } from './marvel.interface';
 import { MarvelHeroResponse } from './marvel-hero-response.interface';
+import { MarvelListRequest } from './marvel-list-request.interface';
 
 export {
   MarvelHero,
@@ -17,4 +18,5 @@ export {
   MarvelResource,
   MarvelResponseData,
   MarvelHeroResponse,
+  MarvelListRequest,
 };
