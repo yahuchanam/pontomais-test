@@ -1,0 +1,13 @@
+@import "/src/styles/design-token";
+
+.no-result-msg {
+  font-family: "Roboto";
+    font-weight: 400;
+    text-align: center;
+    padding: 1rem;
+    border-radius: $space-mobile-small;
+    margin-top: 2rem;
+    font-size: 1rem;
+    line-height: 1.2;
+    border: 1px solid $color-primary;
+}
