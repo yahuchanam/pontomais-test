@@ -13,7 +13,7 @@ Considerações:
   - SOLID (em alguns momentos - SRP é um desafio no Angular)
   - Object Calisthnics
   - Clean Code
-  - BEM CSS (só havia necessidade mas usei em alguns casos)
+  - BEM CSS (não havia necessidade mas usei em alguns casos)
 
 _DISCLAIMER:_
 
