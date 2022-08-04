@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
-import { marvelAPI } from 'src/app/app.config';
+import { map, Observable, of, tap } from 'rxjs';
+import { apiPageSize, marvelAPI } from 'src/app/app.config';
 import { MarvelEndpoint } from 'src/app/enums/endpoint.enum';
-import { MarvelHeroResponse } from 'src/app/model';
+import { MarvelHeroResponse, MarvelListRequest } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,22 +14,26 @@ export class MarvelService {
 
   constructor(private http: HttpClient) {}
 
-  search(term?: string): Observable<MarvelHeroResponse> {
-
-    return this.http.get<MarvelHeroResponse>('assets/mock.json');
+  search(payloadRequest: MarvelListRequest): Observable<MarvelHeroResponse> {
 
     const uri = `${marvelAPI}/${MarvelEndpoint.characters}`;
+    const params = payloadRequest.toParams();
+    const cacheKey = uri + params.toString();
 
-    if(this.cache.has(uri)) {
-      return of(this.cache.get(uri) as MarvelHeroResponse);
+    if(this.cache.has(cacheKey)) {
+      return of(this.cache.get(cacheKey) as MarvelHeroResponse);
     }
 
     return this.http.get<MarvelHeroResponse>(
-      uri, { observe: 'response' }
+      uri, { params }
     ).pipe(
-      map(result => {
-        this.cache.set(uri, result?.body)
-        return result.body as MarvelHeroResponse
+      map(response => {
+        this.cache.set(cacheKey, response);
+        response.data.pages = Math.floor(response.data.total / apiPageSize);
+        if(response.data.results.length === 0) {
+          response.data.pages = 0;
+        }
+        return response;
       })
     );
   }

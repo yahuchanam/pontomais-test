@@ -4,6 +4,10 @@ import { MarvelService } from 'src/app/services/marvel/marvel.service';
 import { SubSink } from 'subsink';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { MarvelHeroResponse } from 'src/app/model';
+import {
+  IMarvelListRequest,
+  MarvelListRequest,
+} from 'src/app/model/marvel-list-request.interface';
 
 @Component({
   selector: 'app-heroes-list',
@@ -15,6 +19,10 @@ import { MarvelHeroResponse } from 'src/app/model';
 export class HeroesListComponent implements OnInit, OnDestroy {
   subsink = new SubSink();
   payload?: MarvelHeroResponse;
+  marvelListParams: IMarvelListRequest = {
+    page: 1,
+    term: '',
+  };
 
   constructor(private marvelService: MarvelService) {}
   ngOnInit(): void {
@@ -25,9 +33,22 @@ export class HeroesListComponent implements OnInit, OnDestroy {
     this.subsink.unsubscribe();
   }
 
-  search(term: string = ''): void {
-    this.subsink.sink = this.marvelService.search(term).subscribe((result) => {
-      this.payload = result;
-    });
+  changeTerm(term: string): void {
+    this.marvelListParams.term = term;
+    this.search();
+  }
+
+  navigate(page: number): void {
+    this.marvelListParams.page = page;
+    this.search();
+  }
+
+  search(): void {
+    this.subsink.sink = this.marvelService
+      .search(new MarvelListRequest(this.marvelListParams))
+      .subscribe((result) => {
+        this.payload = result;
+        console.log(this.payload);
+      });
   }
 }

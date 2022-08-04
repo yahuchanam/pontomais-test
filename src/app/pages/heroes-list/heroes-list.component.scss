@@ -1,0 +1,10 @@
+@import "/src/styles/design-token";
+
+:host {
+  min-height: calc(100vh - 67px);
+  display: flex;
+  flex-direction: column;
+  @include desktop() {
+    min-height: calc(100vh - 106px);
+  }
+}
