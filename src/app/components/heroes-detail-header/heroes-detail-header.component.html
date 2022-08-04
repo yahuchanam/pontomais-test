@@ -16,7 +16,7 @@
         class="fancy-box"
       ></app-heroes-detail-widget>
     </div>
-    <span class="fancy-box hero-description">
+    <span *ngIf="hero.description" class="fancy-box hero-description">
       <h3>Description</h3>
       {{ hero.description }}
     </span>

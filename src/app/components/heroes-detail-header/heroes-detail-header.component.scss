@@ -55,7 +55,7 @@ h3 {
 
 .fancy-box {
   position: relative;
-  width: auto;
+  width: 100%;
   overflow: hidden;
   border: 1px solid $color-base;
   padding: 1rem;
@@ -119,6 +119,7 @@ h3 {
   }
 
   .hero-info {
+    width: 100%;
     &-top {
       flex-direction: row;
     }
@@ -134,9 +135,13 @@ h3 {
     font-size: 3rem;
   }
 
+  .hero-description {
+    width: 100%;
+  }
+
   .metrics {
     gap: 2rem;
-    margin-bottom: 0;
+    margin: auto 0;
     flex-wrap: nowrap;
     .fancy-box {
       width: 25%;
