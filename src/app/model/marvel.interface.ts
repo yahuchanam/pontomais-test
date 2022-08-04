@@ -13,5 +13,6 @@ export interface MarvelResponseData<T> {
   limit: number;
   total: number;
   count: number;
+  pages: number;
   results: T[];
 }
