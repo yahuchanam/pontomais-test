@@ -3,7 +3,7 @@
 :host {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 12px);
+  min-height: 100vh;
   background-color: $color-light;
 }
 
@@ -15,6 +15,7 @@
   height: $space-mobile-regular;
   width: 100vw;
   background-color: $color-primary;
+  margin-top: auto;
 }
 
 @include desktop() {
