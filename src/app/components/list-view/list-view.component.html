@@ -8,7 +8,11 @@
       {{ column }}
     </div>
   </div>
-  <div *ngFor="let hero of heroes" class="list-view__row">
+  <div
+    *ngFor="let hero of heroes"
+    class="list-view__row"
+    [routerLink]="['/detail', hero.id]"
+  >
     <div class="list-view__cell">
       <img
         class="hero-thumb"

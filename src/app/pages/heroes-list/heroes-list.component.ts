@@ -48,7 +48,6 @@ export class HeroesListComponent implements OnInit, OnDestroy {
       .search(new MarvelListRequest(this.marvelListParams))
       .subscribe((result) => {
         this.payload = result;
-        console.log(this.payload);
       });
   }
 }
