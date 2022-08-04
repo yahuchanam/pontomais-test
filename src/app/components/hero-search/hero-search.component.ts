@@ -19,7 +19,7 @@ export class HeroSearchComponent implements OnInit, OnDestroy {
   search = new FormControl<string>('');
   subSink = new SubSink();
 
-  @Output() change = new EventEmitter<string>();
+  @Output() changeTerm = new EventEmitter<string>();
 
   constructor(private marvelService: MarvelService) {}
 
@@ -32,7 +32,7 @@ export class HeroSearchComponent implements OnInit, OnDestroy {
         distinctUntilChanged()
       )
       .subscribe((term) => {
-        this.change.emit(term);
+        this.changeTerm.emit(term);
       });
   }
 
