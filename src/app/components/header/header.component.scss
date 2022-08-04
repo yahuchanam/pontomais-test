@@ -34,8 +34,13 @@
 
 @include desktop() {
   .header {
+    margin-bottom: $space-desktop-big;
     &__title {
       font-size: 28px;
+    }
+
+    &::after {
+      bottom: -4px;
     }
   }
 
