@@ -26,7 +26,7 @@ Para rodar:
 
 ```
 npm install
-ng server -o
+ng serve -o
 ```
 
 ou acesse:
