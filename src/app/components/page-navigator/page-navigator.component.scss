@@ -1,25 +1,25 @@
 @import "/src/styles/design-token";
 
-@mixin triangle($size, $color, $type) {
+@mixin triangle($w, $h, $color, $type) {
   display: block;
   width: 0;
   height: 0;
-  border-top: $space-mobile-small solid transparent;
-  border-bottom: $space-mobile-small solid transparent;
-  border-left: $space-mobile-small solid transparent;
-  border-right: $space-mobile-small solid transparent;
+  border-top: $h solid transparent;
+  border-bottom: $h solid transparent;
+  border-left: $h solid transparent;
+  border-right: $h solid transparent;
 
   @if $type == left {
-    border-right: $size solid $color;
+    border-right: $w solid $color;
     border-left: unset;
   } @else if $type == right {
-    border-left: $size solid $color;
+    border-left: $w solid $color;
     border-right: unset;
   } @else if $type == down {
-    border-top: $size solid $color;
+    border-top: $w solid $color;
     border-bottom: unset;
   } @else if $type == up {
-    border-bottom: $size solid $color;
+    border-bottom: $w solid $color;
     border-top: unset;
   }
 }
@@ -32,15 +32,15 @@
   align-items: center;
   font-family: "Roboto";
   font-weight: 400;
-  margin: 0 -30px;
+  margin: auto -30px;
 }
 
 .triangle-left {
-  @include triangle(16px, $color-primary, left);
+  @include triangle(16px, $space-mobile-small, $color-primary, left);
 }
 
 .triangle-right {
-  @include triangle(16px, $color-primary, right);
+  @include triangle(16px, $space-mobile-small,$color-primary, right);
 }
 
 .btn {
@@ -59,7 +59,7 @@
 
 .pages {
   display: flex;
-  gap: 1rem;
+  gap: 20px;
   .btn {
     display: flex;
     align-items: center;
@@ -70,5 +70,24 @@
     height: 32px;
     font-family: "Roboto";
     border: 2px solid $color-primary;
+  }
+}
+
+@include desktop() {
+  :host {
+    justify-content: center;
+    margin: 0;
+    gap: 12px;
+    padding: 16px 0;
+    align-self: center;
+    margin: auto 0;
+  }
+
+  .triangle-left {
+    @include triangle(12px, 8px, $color-primary, left);
+  }
+
+  .triangle-right {
+    @include triangle(12px, 8px, $color-primary, right);
   }
 }
