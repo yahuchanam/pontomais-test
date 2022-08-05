@@ -7,7 +7,7 @@
 </div>
 <div class="pages">
   <span
-    *ngFor="let page of pages | countNumber : selected"
+    *ngFor="let page of pages | countNumber : maxPage : selected"
     class="btn"
     [ngClass]="{ active: page === selected }"
     (click)="goto(page)"

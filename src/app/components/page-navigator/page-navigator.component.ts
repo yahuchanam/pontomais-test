@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-page-navigator',
@@ -10,7 +17,16 @@ export class PageNavigatorComponent implements OnInit {
   @Input() selected = 1;
   @Output() change = new EventEmitter<number>();
 
-  constructor() {}
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.maxPage = globalThis.innerWidth < 1024 ? 3 : 6;
+  }
+
+  maxPage = 3;
+
+  constructor() {
+    this.onResize(new Event('window:resize'));
+  }
 
   ngOnInit(): void {}
 

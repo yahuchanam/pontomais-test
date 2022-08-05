@@ -6,16 +6,10 @@ import { HostListener, Pipe, PipeTransform } from '@angular/core';
 export class CountNumberPipe implements PipeTransform {
   maxPage = 3;
 
-  constructor() {
-    this.onResize(new Event('window:resize'));
-  }
+  constructor() {}
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    this.maxPage = globalThis.innerWidth < 1024 ? 3 : 6;
-  }
-
-  transform(value: number, selected: number = 1): number[] {
+  transform(value: number, maxPage = 3, selected: number = 1): number[] {
+    this.maxPage = maxPage;
     if (value < this.maxPage) return this.listOfLessMinimum(value);
     if (selected === 1) return this.listInit(selected);
     if (selected + 1 < value) return this.list(selected);
