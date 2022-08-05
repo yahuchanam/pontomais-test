@@ -28,7 +28,7 @@ export class HeroSearchComponent implements OnInit, OnDestroy {
       .pipe(
         map((value) => (value === null ? '' : value.trim())),
         filter((term) => term.length > 2),
-        debounceTime(1000),
+        debounceTime(700),
         distinctUntilChanged()
       )
       .subscribe((term) => {
