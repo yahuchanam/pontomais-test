@@ -34,7 +34,10 @@ export class HeroesListComponent implements OnInit, OnDestroy {
   }
 
   changeTerm(term: string): void {
-    this.marvelListParams.term = term;
+    this.marvelListParams = {
+      term,
+      page: 0,
+    };
     this.search();
   }
 
