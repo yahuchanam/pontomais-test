@@ -6,6 +6,7 @@
 <ng-template #resultList>
   <app-list-view [heroes]="payload?.data?.results || []"></app-list-view>
   <app-page-navigator
+    [selected]="marvelListParams.page"
     [pages]="payload?.data?.pages || 1"
     (change)="navigate($event)"
   ></app-page-navigator>
