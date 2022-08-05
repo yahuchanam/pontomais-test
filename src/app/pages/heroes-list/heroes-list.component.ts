@@ -36,7 +36,7 @@ export class HeroesListComponent implements OnInit, OnDestroy {
   changeTerm(term: string): void {
     this.marvelListParams = {
       term,
-      page: 0,
+      page: 1,
     };
     this.search();
   }
@@ -47,6 +47,7 @@ export class HeroesListComponent implements OnInit, OnDestroy {
   }
 
   search(): void {
+    console.log(this.marvelListParams);
     this.subsink.sink = this.marvelService
       .search(new MarvelListRequest(this.marvelListParams))
       .subscribe((result) => {
